@@ -64,7 +64,7 @@
 			<scope>runtime</scope>
 		</dependency>
 		
-		<!-- Migracoes - Flyway - Scripts de migracao de banco de dados 
+		<!-- Flyway - Scripts de migracao de banco de dados 
 				de nome parao="Vxx__*_*.sql" Ex.:V01__criar_e_registrar_categorias.sql) 
 				dentro da pasta "src\main\resources" -->
 		<dependency>
