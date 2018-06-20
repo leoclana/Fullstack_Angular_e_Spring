@@ -4,6 +4,7 @@ import java.net.URI;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -54,7 +55,14 @@ public class CategoriaResource {
 	}
 	
 	@PostMapping
-	public ResponseEntity<Categoria> criar(@RequestBody Categoria categoria, HttpServletResponse response) {
+	/**
+	 * O "@Valid" vai fazer a validacao do "Bean" e ao inves de retornar "500 Internal Server Error" passa a retornar "400 Bad Request"
+	 * 
+	 * @param categoria
+	 * @param response
+	 * @return
+	 */
+	public ResponseEntity<Categoria> criar(@Valid @RequestBody Categoria categoria, HttpServletResponse response) {
 		
 		//Categoria categoriaSalva = 
 		categoriaRepository.save(categoria);
