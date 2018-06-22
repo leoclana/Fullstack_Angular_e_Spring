@@ -53,7 +53,7 @@ public class PessoaResource {
 	}
 
 	@GetMapping("/{codigo}")
-	public ResponseEntity<Pessoa>  buscarPeloCodigo(@PathVariable Long codigo) {
+	public ResponseEntity<Pessoa> buscarPeloCodigo(@PathVariable Long codigo) {
 		Pessoa pessoa = pessoaRepository.findOne(codigo);
 		return pessoa != null ? ResponseEntity.ok(pessoa) : ResponseEntity.notFound().build(); 
 	}
@@ -67,6 +67,22 @@ public class PessoaResource {
 	 */
 	public void remover(@PathVariable Long codigo) {
 		pessoaRepository.delete(codigo);
+	}
+	
+	@PostMapping("/{codigo}/trocaStatus")
+	public ResponseEntity<Pessoa> trocaStatusAtivo(@PathVariable Long codigo, HttpServletResponse response){
+		ResponseEntity retorno;
+		Pessoa pessoa = pessoaRepository.findOne(codigo);
+		if(pessoa != null) {
+			pessoa.setAtivo( pessoa.getAtivo() ? false : true);
+			pessoaRepository.save(pessoa);
+			publisher.publishEvent(new RecursoCriadoEvent(this, response, pessoa.getCodigo()));
+			retorno = ResponseEntity.status(HttpStatus.UPGRADE_REQUIRED).body(pessoa);
+		}else {
+			retorno = ResponseEntity.notFound().build();
+		}
+		
+		return retorno; 
 	}
 		
 }
