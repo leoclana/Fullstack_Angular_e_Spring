@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -73,6 +74,10 @@ public class PessoaResource {
 		pessoaRepository.delete(codigo);
 	}
 	
+	/**
+	 * Aula 4.2
+	 * Esse foi somente um exemplo de estudo para atualização de todo o objeto. aula se repete no item 4.4
+	 */
 	@PutMapping("/{codigo}/trocaStatus")
 	public ResponseEntity<Pessoa> trocaStatusAtivo(@PathVariable Long codigo, HttpServletResponse response){
 		ResponseEntity retorno;
@@ -90,10 +95,18 @@ public class PessoaResource {
 		return retorno; 
 	}
 	
+	//Aula 4.3
 	@PutMapping("/{codigo}")
 	public ResponseEntity<Pessoa> atualizar(@PathVariable Long codigo, @Valid @RequestBody Pessoa pessoa){
 		Pessoa pessoaSalva = pessoaService.atualizar(codigo, pessoa);
 		return ResponseEntity.ok(pessoaSalva);
 	}
-		
+	
+	//Aula 4.4
+	@PutMapping("/{codigo}/ativo")
+	@ResponseStatus(HttpStatus.NO_CONTENT)
+	public void atualizarPropriedadeAtivo(@PathVariable Long codigo, @RequestBody Boolean ativo) {
+		pessoaService.atualizarPropriedadeAtivo(codigo, ativo);
+	}
+
 }
