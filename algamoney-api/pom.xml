@@ -77,6 +77,12 @@
     		<groupId>org.hibernate</groupId>
     		<artifactId>hibernate-java8</artifactId>
 		</dependency>
+		<!-- ** temporario somente para importar no eclipse - aula 5.7-Metamodel ** 
+		<dependency>
+    		<groupId>org.hibernate</groupId>
+    		<artifactId>hibernate-jpamodelgen</artifactId>
+		</dependency>
+		-->
 		
 		<!-- Suporte do Jackson para as datas do Java 8 -->
 		<dependency>
