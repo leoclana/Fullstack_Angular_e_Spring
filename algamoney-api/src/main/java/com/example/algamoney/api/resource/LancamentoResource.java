@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -46,30 +48,40 @@ public class LancamentoResource {
 	@Autowired //** Ler o "message.properties" *
 	private MessageSource messageSource;
 	
-//	@GetMapping
+//	@GetMapping   // 5.2
 //	public ResponseEntity<?> listar(){
 //		List<Lancamento> lancamentos = lancamentoRepository.findAll();
 //		return lancamentos.isEmpty() ? ResponseEntity.notFound().build() : ResponseEntity.ok(lancamentos);
 //	}
-	@GetMapping
-	public List<Lancamento> pesquisar(LancamentoFilter lancamentoFilter) {
-		return lancamentoRepository.filtrar(lancamentoFilter);
+//	@GetMapping  //5.7
+//	public List<Lancamento> pesquisar(LancamentoFilter lancamentoFilter) {
+//		return lancamentoRepository.filtrar(lancamentoFilter);
+//	}
+	@GetMapping  //5.9
+	/**
+	 * 
+	 * @param lancamentoFilter
+	 * @param pageable : proprio do spring para receber os paramtros "size" e "page"
+	 * @return
+	 */
+	public Page<Lancamento> pesquisar(LancamentoFilter lancamentoFilter, Pageable pageable) {
+		return lancamentoRepository.filtrar(lancamentoFilter, pageable);
 	}
 	
-	@GetMapping("/{codigo}")
+	@GetMapping("/{codigo}") //5.2
 	public ResponseEntity<Lancamento> buscarPeloCodigo(@PathVariable Long codigo){
 		Lancamento lancamento = lancamentoRepository.findOne(codigo);
 		return lancamento != null ? ResponseEntity.ok(lancamento) : ResponseEntity.notFound().build();
 	}
 	
-	@PostMapping
+	@PostMapping  //5.3, 5.4, 5.5, 5.6
 	public ResponseEntity<Lancamento> criar(@Valid @RequestBody Lancamento lancamento, HttpServletResponse response){
 		lancamentoService.salvar(lancamento);
 		publisher.publishEvent(new RecursoCriadoEvent(this, response, lancamento.getCodigo()));
 		return ResponseEntity.status(HttpStatus.CREATED).body(lancamento);
 	}
 	
-	@ExceptionHandler({ PessoaInexistenteOuInativaException.class })
+	@ExceptionHandler({ PessoaInexistenteOuInativaException.class })  //5.4, 5.5, 5.6
 	public ResponseEntity<Object> handlePessoaInexistenteOuInativaException(PessoaInexistenteOuInativaException ex){
 		String mensagemUsuario = messageSource.getMessage("pessoa.inexistente-ou-inativa", null, LocaleContextHolder.getLocale());
 		String mensagemDesenvolvedor = ex.toString();
@@ -77,7 +89,7 @@ public class LancamentoResource {
 		return ResponseEntity.badRequest().body(erros);
 	}
 
-	@DeleteMapping("/{codigo}")
+	@DeleteMapping("/{codigo}")  //5.8
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void remover(@PathVariable Long codigo) {
 		lancamentoRepository.delete(codigo);
