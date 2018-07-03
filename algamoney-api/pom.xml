@@ -45,6 +45,11 @@
 			<scope>test</scope>
 		</dependency>
 		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		
 		<!-- DATA BASE -->
 		<!-- <dependency>
 			<groupId>com.h2database</groupId>
@@ -96,6 +101,7 @@
 			<artifactId>commons-lang3</artifactId>
 			<version>3.4</version>
 		</dependency>
+		
 	</dependencies>
 
 	<build>
