@@ -26,8 +26,9 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 			.withClient("angular")   // login da aplicação cliente
 			.secret("@ngul@r0")      // senha da aplicação cliente
 			.scopes("read", "write") // escopo de permicao/acessos
-			.authorizedGrantTypes("password") // tipo do fluxo de criacao do TOKEN
-			.accessTokenValiditySeconds(1800); // tempo em que o TOKEN ficará valido, em segundos
+			.authorizedGrantTypes("password", "refresh_token") // "password": Indica o tipo do fluxo de criacao do TOKEN "usuario" e "senha" , "refresh_token" : na ispira��o do "TOKEN" ir� usar o "refresh_token" para gerar um novo TOKEN.
+			.accessTokenValiditySeconds(20) // tempo em que o TOKEN ficara valido, em segundos
+			.refreshTokenValiditySeconds(3600 * 24); // tempo em que o "refresh_token" ficara valido, em segundos
 	}
 	
 	@Override
@@ -35,6 +36,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 		endpoints
 			.tokenStore(tokenStore())
 			.accessTokenConverter(accessTokenConverter())
+			.reuseRefreshTokens(false) // Indica que toda vez que for solicitado um novo "TOKEN", um novo "refresh_token" tambem sera gerado e valido por mais <x-tempo>"(360 * 24)segundos"
 			.authenticationManager(authenticationManager);
 	}
 	
