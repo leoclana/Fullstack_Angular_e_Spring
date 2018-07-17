@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -33,15 +32,16 @@ public class CategoriaResource {
 	@Autowired
 	private ApplicationEventPublisher publisher;
 	
-	
 	//@CrossOrigin(maxAge = 10, origins = {"http://qqOutroServidor:8000", "http://qqOutroServidor2" } ) 
 	/**
 	 *  "@CrossOrigin": Permite receber requisicao de origens diferentes 
 	 *	"maxAge"      : Tempo em segundos que permitira receber outra requisicao depois do "Request Method: OPTIONS"
 	 *	"origins"     : origens diferentes da aplicacao rest("http://localhost:8080") que podem chamar o servico.
 	 *  "..."
+	 *  
+	 *  Ps.: Essa implementacao nao pode ser feita aqui por causa da "ainda-incompatibilidade do "Spring-Securitu" com "OAuth2".
+	 *       Para solucionar foi criado a class "CrosFilter.java"
 	 */
-	@CrossOrigin(maxAge = 10)
 	@GetMapping
 	public List<Categoria> listar() {
 		return categoriaRepository.findAll();
