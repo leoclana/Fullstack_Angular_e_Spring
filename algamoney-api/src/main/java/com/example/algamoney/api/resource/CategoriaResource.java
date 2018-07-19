@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -43,11 +44,13 @@ public class CategoriaResource {
 	 *       Para solucionar foi criado a class "CrosFilter.java"
 	 */
 	@GetMapping
+	@PreAuthorize("hasAuthority('ROLE_PESQUISAR_CATEGORIA') and #oauth2.hasScope('read')")
 	public List<Categoria> listar() {
 		return categoriaRepository.findAll();
 	}
 	
 	@GetMapping("/listaX")
+	@PreAuthorize("hasAuthority('ROLE_PESQUISAR_CATEGORIA') and #oauth2.hasScope('read')")
 	/**
 	 *  ResponseEntity<?> - indica um "return" de "ResponseEntity" que pode conter qualquer "JSON"
 	 *  Ex.: return ResponseEntity.ok(categorias) ou  ResponseEntity.noContent() = "204 No Content" : não contem resultado
@@ -71,6 +74,7 @@ public class CategoriaResource {
 	}
 	
 	@PostMapping
+	@PreAuthorize("hasAuthority('ROLE_CADASTRAR_CATEGORIA') and #oauth2.hasScope('write')")
 	/**
 	 * O "@Valid" vai fazer a validacao do "Bean" e ao inves de retornar "500 Internal Server Error" passa a retornar "400 Bad Request"
 	 * 
@@ -94,12 +98,14 @@ public class CategoriaResource {
 	}
 	
 	@GetMapping("/{codigo}")
+	@PreAuthorize("hasAuthority('ROLE_PESQUISAR_CATEGORIA') and #oauth2.hasScope('read')")
 	public ResponseEntity<Categoria> buscarPeloCodigo(@PathVariable Long codigo) {
 		 Categoria categoria = categoriaRepository.findOne(codigo);
 		 return categoria != null ? ResponseEntity.ok(categoria) : ResponseEntity.notFound().build();
 	}
 	
 	@DeleteMapping("/{codigo}")
+	@PreAuthorize("hasAuthority('ROLE_CADASTRAR_CATEGORIA') and #oauth2.hasScope('write')")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	/**
 	 * O Metodo retorna "void" mas o retorno "@ResponseStatus(HttpStatus.NO_CONTENT)" é o "204" = sucesso, mas não tenho nada para retornar.

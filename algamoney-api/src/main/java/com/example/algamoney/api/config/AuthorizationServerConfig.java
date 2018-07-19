@@ -23,12 +23,19 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 	public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
 		//clients.jdbc(dataSource); // para o caso de usar em Banco de Dados..
 		clients.inMemory()
-			.withClient("angular")   // login da aplicação cliente
-			.secret("@ngul@r0")      // senha da aplicação cliente
-			.scopes("read", "write") // escopo de permicao/acessos
-			.authorizedGrantTypes("password", "refresh_token") // "password": Indica o tipo do fluxo de criacao do TOKEN "usuario" e "senha" , "refresh_token" : na ispira��o do "TOKEN" ir� usar o "refresh_token" para gerar um novo TOKEN.
-			.accessTokenValiditySeconds(20) // tempo em que o TOKEN ficara valido, em segundos
-			.refreshTokenValiditySeconds(3600 * 24); // tempo em que o "refresh_token" ficara valido, em segundos
+				.withClient("angular")   // login da aplicação cliente
+				.secret("@ngul@r0")      // senha da aplicação cliente
+				.scopes("read", "write") // escopo de permicao/acessos
+				.authorizedGrantTypes("password", "refresh_token") // "password": Indica o tipo do fluxo de criacao do TOKEN "usuario" e "senha" , "refresh_token" : na ispira��o do "TOKEN" ir� usar o "refresh_token" para gerar um novo TOKEN.
+				.accessTokenValiditySeconds(1800) // tempo em que o TOKEN ficara valido, em segundos
+				.refreshTokenValiditySeconds(3600 * 24) // tempo em que o "refresh_token" ficara valido, em segundos
+			.and()
+				.withClient("mobile")
+				.secret("m0b1l30")
+				.scopes("read")
+				.authorizedGrantTypes("password", "refresh_token")
+				.accessTokenValiditySeconds(1800)
+				.refreshTokenValiditySeconds(3600 * 24);
 	}
 	
 	@Override
