@@ -1,0 +1,1388 @@
+{
+	"info": {
+		"_postman_id": "3c16e598-43a7-4ecd-949c-b8b901ef71b2",
+		"name": "Algaowrks - Fullstack_Angular_e_Spring",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Teste do mocky.io",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://www.mocky.io/v2/5b16a5183100007a006f4009",
+					"protocol": "http",
+					"host": [
+						"www",
+						"mocky",
+						"io"
+					],
+					"path": [
+						"v2",
+						"5b16a5183100007a006f4009"
+					]
+				},
+				"description": "http://www.mocky.io/v2/5b16a5183100007a006f4009"
+			},
+			"response": []
+		},
+		{
+			"name": "ListaX - Lista co retorno \"ResponseEntity\"",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/categorias/listaX",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"categorias",
+						"listaX"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lista de Categorias JSON",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/categorias",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"categorias"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criar Categoria nova",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nome\" : \"Financiamento\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/categorias",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"categorias"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criticar criação \"Categoria\" parametros errados",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nome\" : \"Despesas Bancarias\",\n\t\"descricao\" : \"Teste caso queira validar os parametros errados \",\n\t\"outra\" : \"Validando com <spring.jackson.deserialization.fail-on-unknown-properties=true> no aplication.properties\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/categorias",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"categorias"
+					]
+				},
+				"description": "Teste caso queira validar os parametros errados.\nValidando com <spring.jackson.deserialization.fail-on-unknown-properties=true> no aplication.properties."
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar uma categoria pelo código na URL",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/categorias/6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"categorias",
+						"6"
+					]
+				},
+				"description": "Consultar uma categoria pelo código na URL \"Ex. = 6\"\nou seja, a URL retornada no \"HEDER-LOCATION\" do \"POS Criar Categoria nova\""
+			},
+			"response": []
+		},
+		{
+			"name": "3.10-1. Validando valores inválidos com Bean Validation",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nome\" : null\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/categorias",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"categorias"
+					]
+				},
+				"description": "Teste do BeanValidator com nome NULL"
+			},
+			"response": []
+		},
+		{
+			"name": "3.10-2. Validando valores inválidos com Bean Validation Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nome\" : \"A\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/categorias",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"categorias"
+					]
+				},
+				"description": "Teste do BeanValidator com tamalho Min e Max"
+			},
+			"response": []
+		},
+		{
+			"name": "3.11-a. Desafio: Criando o cadastro de pessoa(Lista)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/pessoas",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pessoas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3.11-c. Desafio: Criando o cadastro de pessoa(p/ codigo)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/pessoas/3",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pessoas",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3.11-d. Desafio: Criando o cadastro de pessoa",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nome\": \"Leo Lana\",\n    \"endereco\": {\n        \"logradouro\": \"Rua Dom Luiz Lasagna\",\n        \"numero\": \"97\",\n        \"complemento\": null,\n        \"bairro\": \"Sta Rosa\",\n        \"cep\": \"24.240-290\",\n        \"cidade\": \"Niterói\",\n        \"estado\": \"RJ\"\n    },\n    \"ativo\": true\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/pessoas",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pessoas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4.1-a. Removendo pessoa com DELETE",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/pessoas/12",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pessoas",
+						"12"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4.1-a. Removendo pessoa com DELETE com ERRO-codigo inexistente",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/pessoas/1232",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pessoas",
+						"1232"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4.2-a. Sobre atualização de recursos REST",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"codigo\": 11,\n    \"nome\": \"Leo Lana\",\n    \"endereco\": {\n        \"logradouro\": \"Rua Dom Luiz Lasagna\",\n        \"numero\": \"97\",\n        \"complemento\": \"sem complemento\",\n        \"bairro\": \"Sta Rosa\",\n        \"cep\": \"24.240-290\",\n        \"cidade\": \"Niterói\",\n        \"estado\": \"RJ\"\n    },\n    \"ativo\": true\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/pessoas",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pessoas"
+					]
+				},
+				"description": "Altere algum dado do objeto (Body), passando o id \"codigo\" valido, e submeta o como salvar.\nR: O Hibernete identifica que o objeto ja existe e o atualisa."
+			},
+			"response": []
+		},
+		{
+			"name": "4.2-b. Sobre atualização de recursos REST - Troca só o Status",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/pessoas/11/trocaStatus",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pessoas",
+						"11",
+						"trocaStatus"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4.3-a. Atualizando pessoa com PUT",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nome\": \"Leo Lana\",\n    \"endereco\": {\n        \"logradouro\": \"Rua Dom Luiz Lasagna\",\n        \"numero\": \"97\",\n        \"complemento\": \"casa B\",\n        \"bairro\": \"Sta Rosa\",\n        \"cep\": \"24.240-290\",\n        \"cidade\": \"Niterói\",\n        \"estado\": \"RJ\"\n    },\n    \"ativo\": true\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/pessoas/11",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pessoas",
+						"11"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4.4. Implementando atualização parcial com PUT",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "true"
+				},
+				"url": {
+					"raw": "localhost:8080/pessoas/11/ativo",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pessoas",
+						"11",
+						"ativo"
+					]
+				},
+				"description": "Como na aula 4.2, aonde foi usado o \"@PutMapping(\"/{codigo}/trocaStatus\")\", mas agora usando uma implementação diferente aonde e passado somente o \"codigo\" e o \"true ou false\" no body."
+			},
+			"response": []
+		},
+		{
+			"name": "5.2-a. Desafio: Lista e busca de lançamentos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/lancamentos",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"lancamentos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5.2-b. Desafio: Lista e busca de lançamentos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/lancamentos/16",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"lancamentos",
+						"16"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5.3. Desafio: Cadastrando o primeiro lançamento",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"descricao\": \"5.3 - Premio semestral\",\n\t\"dataVencimento\": \"2018-06-26\",\n\t\"valor\": \"10950.21\",\n\t\"tipo\": \"RECEITA\",\n\t\"categoria\":{\n\t\t\"codigo\":5\n\t},\n\t\"pessoa\":{\n\t\t\"codigo\":1\n\t}\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/lancamentos",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"lancamentos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5.4. Validando inconsistências",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"descricao\": \"5.3 - Premio semestral\",\n\t\"dataVencimento\": \"2018-06-26\",\n\t\"valor\": \"10950.21\",\n\t\"tipo\": \"RECEITA\",\n\t\"categoria\":{\n\t\t\"codigo\":5323\n\t},\n\t\"pessoa\":{\n\t\t\"codigo\":1\n\t}\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/lancamentos",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"lancamentos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5.5. Validando lançamento com Bean Validation",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"descricao\": \"5.3 - Premio semestral\",\n\t\"dataVencimento\": \"2018-06-26\",\n\t\"valor\": \"10950.21\",\n\n\t\t\"codigo\":5323\n\t},\n\t\"pessoa\":{\n\t\t\n\t}\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/lancamentos",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"lancamentos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5.6. Regra para não salvar pessoa inativa",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"descricao\": \"5.6 - Premio semestral\",\n\t\"dataVencimento\": \"2018-06-26\",\n\t\"valor\": \"10950.21\",\n\t\"tipo\": \"RECEITA\",\n\t\"categoria\":{\n\t\t\"codigo\":5\n\t},\n\t\"pessoa\":{\n\t\t\"codigo\":11\n\t}\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/lancamentos",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"lancamentos"
+					]
+				},
+				"description": "Executar \"4.2-b. Sobre atualização de recursos REST - Troca só o Status\" para alterar statos \"ativo=false\"\n"
+			},
+			"response": []
+		},
+		{
+			"name": "5.7-a. Implementando pesquisa de lançamento com Metamodel",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/lancamentos",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"lancamentos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5.7-b. Implementando pesquisa de lançamento com Metamodel",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/lancamentos?descricao=salario",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"lancamentos"
+					],
+					"query": [
+						{
+							"key": "descricao",
+							"value": "salario"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5.7-c. Implementando pesquisa de lançamento com Metamodel",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/lancamentos?dataVencimentoDe=2017-06-10",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"lancamentos"
+					],
+					"query": [
+						{
+							"key": "dataVencimentoDe",
+							"value": "2017-06-10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5.7-d. Implementando pesquisa de lançamento com Metamodel",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/lancamentos?dataVencimentoDe=2017-02-10&dataVencimentoAte=2017-04-10",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"lancamentos"
+					],
+					"query": [
+						{
+							"key": "dataVencimentoDe",
+							"value": "2017-02-10"
+						},
+						{
+							"key": "dataVencimentoAte",
+							"value": "2017-04-10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5.8. Desafio: Removendo lançamentos",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/lancamentos/23",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"lancamentos",
+						"23"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5.9-a. Implementando a paginação de lançamentos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/lancamentos?size=3&page=2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"lancamentos"
+					],
+					"query": [
+						{
+							"key": "size",
+							"value": "3"
+						},
+						{
+							"key": "page",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5.9-b. Implementando a paginação de lançamentos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/lancamentos?size=3&page=2&dataVencimentoDe=2017-06-01",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"lancamentos"
+					],
+					"query": [
+						{
+							"key": "size",
+							"value": "3"
+						},
+						{
+							"key": "page",
+							"value": "2"
+						},
+						{
+							"key": "dataVencimentoDe",
+							"value": "2017-06-01"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6.1-a. Implementando autenticação Basic (Categoria liberada)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/categorias",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"categorias"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6.1-b. Implementando autenticação Basic(Lancamento com senha Ok)",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/lancamentos",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"lancamentos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6.1-c. Implementando autenticação Basic(Lancamento com senha Errada)",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "adminXXX",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/lancamentos",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"lancamentos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6.3-a. Implementando segurança com OAuth 2 e Password Flow",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "@ngul@r0",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "angular",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client",
+							"value": "angular",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/oauth/token",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"oauth",
+						"token"
+					]
+				},
+				"description": "Chamada do serviço para buscar o TOKEN de acesso (class AuthorizationServerConfig)"
+			},
+			"response": []
+		},
+		{
+			"name": "6.3-b. Filtrar lamcamento (usando o  : Autorisation - bearer <token>)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MzEzOTY2NzYsInVzZXJfbmFtZSI6ImFkbWluIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9ST0xFIl0sImp0aSI6ImFiNzczODYxLWVhOWQtNDhkMC1hNzQ4LTczOWVjZDQwOGZiYiIsImNsaWVudF9pZCI6ImFuZ3VsYXIiLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXX0.iulwBqIfulrTYRd3N5p7ltOXdnT0jMPvgrcuJqJk_Ds"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/lancamentos/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"lancamentos",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6.5. Configurando JWT no projeto (getToken)",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "@ngul@r0",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "angular",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client",
+							"value": "angular",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/oauth/token",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"oauth",
+						"token"
+					]
+				},
+				"description": "Chamada do serviço para buscar o TOKEN de acesso (class AuthorizationServerConfig)"
+			},
+			"response": []
+		},
+		{
+			"name": "6.6. Renovando o access token com o refresh token",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "@ngul@r0",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "angular",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "refresh_token",
+							"type": "text"
+						},
+						{
+							"key": "refresh_token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbiIsInNjb3BlIjpbInJlYWQiLCJ3cml0ZSJdLCJhdGkiOiJlOTNkNDg5OC1lMDdiLTRmYmUtOGY1NS1lNzE4ZmNmZjRlMzQiLCJleHAiOjE1MzE0NzcyMjcsImF1dGhvcml0aWVzIjpbIlJPTEVfUk9MRSJdLCJqdGkiOiI0YTkwYmExZS0yNjhiLTRlNWEtYTNmYS0zYzc3MjVjZDZhYTkiLCJjbGllbnRfaWQiOiJhbmd1bGFyIn0.5BjeqTMu0i9kEJzfI_AxfPhnFqlZGdrS2WPPVpJtf2E",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/oauth/token",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"oauth",
+						"token"
+					]
+				},
+				"description": "- Usar a requisição 6.5 para pegar o \"refreash_token\"\n- Usar/substituir o \"refresh-token\" desta requisição\n- Pegar o token gerado aqui e usar na 6.3-b. Ps: agora o \"token\" só vale por 20s."
+			},
+			"response": []
+		},
+		{
+			"name": "6.8. Movendo o refresh token do cookie para a requisição",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "@ngul@r0",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "angular",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "refresh_token",
+							"type": "text"
+						},
+						{
+							"key": "refresh_token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbiIsInNjb3BlIjpbInJlYWQiLCJ3cml0ZSJdLCJhdGkiOiJlOTNkNDg5OC1lMDdiLTRmYmUtOGY1NS1lNzE4ZmNmZjRlMzQiLCJleHAiOjE1MzE0NzcyMjcsImF1dGhvcml0aWVzIjpbIlJPTEVfUk9MRSJdLCJqdGkiOiI0YTkwYmExZS0yNjhiLTRlNWEtYTNmYS0zYzc3MjVjZDZhYTkiLCJjbGllbnRfaWQiOiJhbmd1bGFyIn0.5BjeqTMu0i9kEJzfI_AxfPhnFqlZGdrS2WPPVpJtf2E",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/oauth/token",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"oauth",
+						"token"
+					]
+				},
+				"description": "Aula 6.8\n- Usar a requisição 6.5 para gerar  \"refreash_token\", agora sendo colocado no Cookie (Aula-6.7)\n- No \"body\" de envio, desmarcar o envio do \"refreash_token\", pois agora está sendo pego do \"Cookie\""
+			},
+			"response": []
+		},
+		{
+			"name": "6.11-a. Movendo o usuário para o banco de dados (admin)",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "@ngul@r0",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "angular",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client",
+							"value": "angular",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "admin@algamoney.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/oauth/token",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"oauth",
+						"token"
+					]
+				},
+				"description": "Chamada do serviço para buscar o TOKEN de acesso (class AuthorizationServerConfig)"
+			},
+			"response": []
+		},
+		{
+			"name": "6.11-b. Movendo o usuário para o banco de dados (maria)",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "@ngul@r0",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "angular",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client",
+							"value": "angular",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "maria@algamoney.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "maria",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/oauth/token",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"oauth",
+						"token"
+					]
+				},
+				"description": "Chamada do serviço para buscar o TOKEN de acesso (class AuthorizationServerConfig)"
+			},
+			"response": []
+		},
+		{
+			"name": "6.12-a. Adicionando permissões de acesso (Listar Categorias)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MzIwMzU4MDQsInVzZXJfbmFtZSI6ImFkbWluQGFsZ2Ftb25leS5jb20iLCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiJhYWM4ZWNhMS0wMDU3LTQ0NGItODUwYy0yNmM0NWUzZjM2OWIiLCJjbGllbnRfaWQiOiJtb2JpbGUiLCJzY29wZSI6WyJyZWFkIl19.03JGn4Eud70GmcHUKjPPptHk0cePz1Q9yklowNwDEiE"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/categorias",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"categorias"
+					]
+				},
+				"description": "Nessa aula, o \"permitAll\" configurado em \"ResourceServerConfig.configure(HttpSecurity http){... http.authorizeRequests().antMatchers(\"/categorias\").permitAll()}\" perde o sentido, ja que foi implementado o \"@PreAuthorize\" nos metodos de \"CategoriaResource\".\n\nCom o cliente=angular, poderá execurat o scopo \"read / write\" conforme configurado em \"AuthorizationServerConfig\""
+			},
+			"response": []
+		},
+		{
+			"name": "6.12-b. Adicionando permissões de acesso (getToken para Usuario=admin / cliente=mobile)",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "m0b1l30",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "mobile",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client",
+							"value": "mobile",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "admin@algamoney.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/oauth/token",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6.12-c. Adicionando permissões de acesso (Criar Categorias /usuario=admin e cliente=mobile)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MzIwMzU4MDQsInVzZXJfbmFtZSI6ImFkbWluQGFsZ2Ftb25leS5jb20iLCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiJhYWM4ZWNhMS0wMDU3LTQ0NGItODUwYy0yNmM0NWUzZjM2OWIiLCJjbGllbnRfaWQiOiJtb2JpbGUiLCJzY29wZSI6WyJyZWFkIl19.03JGn4Eud70GmcHUKjPPptHk0cePz1Q9yklowNwDEiE"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nome\" : \"Financiamento\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/categorias",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"categorias"
+					]
+				},
+				"description": "Com o cliente=mobile, só poderá execurat o scopo \"read\" conforme configurado em \"AuthorizationServerConfig\"\n\nRetorno esperado para um Token valido (mobile / admin)\n{\n    \"error\": \"insufficient_scope\",\n    \"error_description\": \"Insufficient scope for this resource\",\n    \"scope\": \"write\"\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "6.14. Implementando o logout",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MzIwNDYyNTksInVzZXJfbmFtZSI6ImFkbWluQGFsZ2Ftb25leS5jb20iLCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiIzYTU4YzZjZC00ZjkxLTRhOWItOGM1Zi1jNDI0ZDg4NmRhNDIiLCJjbGllbnRfaWQiOiJtb2JpbGUiLCJzY29wZSI6WyJyZWFkIl19.cVTUbPb1liEOEKpjflIPev3W5tukidQYu60A1kt55u8"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/tokens/revoke",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tokens",
+						"revoke"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
