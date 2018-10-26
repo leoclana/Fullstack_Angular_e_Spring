@@ -1,0 +1,14 @@
+Back-End:
+- Java-8
+- Eclipse / STS on Eclipse
+- Spring Boot (https://spring.io)
+- Postmen
+
+Front-End
+- Node (https://nodejs.org)
+- NPM
+- TypeScript (C:\>npm install -g typescript) // Usar o "npm install" para baixar e instala, "-g" para todo o computado e não somente na pasta, "typescript" nesse caso, o TypeScript.
+
+Repositório:
+- Git (https://github.com/leoclana)
+- IDE GitKraken
