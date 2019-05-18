@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
     selector: 'hallo',
@@ -8,5 +8,7 @@ import { Component } from '@angular/core';
               `
 })
 export class HelloComponent{
-    nome = 'L.Lana';
+    //** criando passagem de parametro externo para "nome" com { Input / @Input() }*/
+    //nome = 'L.Lana';
+    @Input() nome: string;
 }
