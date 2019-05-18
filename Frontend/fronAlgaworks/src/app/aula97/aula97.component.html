@@ -1,0 +1,32 @@
+<h1>* Aula 9.7 a 9.10</h1>
+* Trabalhando: 
+<br/> - "on-input / (input) / [(ngModel)]"
+<br/> - "value={{v}} / [value]=v / [(ngModel)]=v"
+<br/> - "on-click= / (click)=" ...
+
+<div class="alert alert-primary" role="alert">
+  Fincionario adicionado: <strong>{{nomeFuncionario +' '+sobrenome}}</strong>
+</div>
+
+<div class="form-group">
+    <label>Nome :</label>
+    <!-- <input type="text" class="form-control" on-input="alterarNome($event)" value="{{nomeFuncionario}}" > -->
+    <!-- ou -->
+    <!-- <input type="text" class="form-control" (input)="alterarNome($event)" [value]="nomeFuncionario"> -->
+    <!-- <input type="text" class="form-control" (input)="nomeFuncionario = $event.target.value" [value]="nomeFuncionario"> -->
+    <input type="text" class="form-control" [(ngModel)]="nomeFuncionario">
+    
+    <label>Sobrenome :</label>
+    <input type="text" class="form-control" #sobrenomeInput>
+    <br/>
+    <!-- on-click -->
+    <!-- <button type="button" class="btn btn-primary" on-click="adicionar(sobrenomeInput.value)">Adicionar</button> -->
+    <!-- ou -->
+    <!-- <button type="button" class="btn btn-primary" (click)="adicionar(sobrenomeInput.value)">Adicionar</button> -->
+
+    <!-- disabled -->
+    <!-- <button type="button" class="btn btn-primary" (click)="adicionar(sobrenomeInput.value)" bind-disabled="nomeFuncionario.length == 0">Adicionar</button> -->
+    <!-- ou -->
+    <button type="button" class="btn btn-primary" (click)="adicionar(sobrenomeInput.value)" [disabled]="nomeFuncionario.length == 0">Adicionar</button>
+</div>
+  

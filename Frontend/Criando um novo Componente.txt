@@ -1,0 +1,55 @@
+https://www.algaworks.com/aulas/1524/criando-um-componente/
+
+## Criando um novo Componente na mão:
+c:\novoProjeto> 
+# ir para a pasta app:
+c:\novoProjeto\src\app>
+#criar pasta do novo componente 
+c:\novoProjeto\src\app\hallo>
+#criar arquvo "hallo.componente.ts"
+	import { Component } from '@angular/core';
+
+	@Component({
+		selector: 'hallo',
+		template: `<h2>
+						Hallo {{nome}}
+				   </h2>
+				  `
+	})
+	export class HelloComponent{
+		nome = 'L.Lana';
+	}
+
+# Abrir arquivo "app.module.ts" e registrar o novo componente "HelloComponent"
+	import { BrowserModule } from '@angular/platform-browser';
+	import { FormsModule } from '@angular/forms';
+	import { NgModule } from '@angular/core';
+
+	import { AppComponent } from './app.component';
+	import { HelloComponent } from './hallo/hallo.component';
+
+	@NgModule({
+	  declarations: [
+		AppComponent,
+		HelloComponent
+	  ],
+	  imports: [
+		BrowserModule,
+		FormsModule
+	  ],
+	  providers: [],
+	  bootstrap: [AppComponent]
+	})
+	export class AppModule { }
+.
+
+
+====================================================================
+
+## ## Criando um novo Componente com "@angular/cli":
+# Gera arquivos "componente.css , componente.html , componente.ts e componente.spec.ts"
+c:\novoProjeto> ng generate component bem-vindo
+# ou
+c:\novoProjeto> ng generate component bem-vindo
+# gera sem o *.spec.ts
+c:\novoProjeto> ng generate component bem-vindo --spec=false
