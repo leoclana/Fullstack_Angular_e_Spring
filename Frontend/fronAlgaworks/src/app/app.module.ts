@@ -10,6 +10,9 @@ import { Aula912Component } from './aula912/aula912.component';
 import { Aula913Component } from './aula913/aula913.component';
 import { Aula914Component } from './aula914/aula914.component';
 import { FuncionarioCardComponent } from './funcionario-card/funcionario-card.component';
+import { FuncionarioFormComponent } from './funcionario-form/funcionario-form.component';
+import { FuncionarioCadastroComponent } from './funcionario-cadastro/funcionario-cadastro.component';
+import { FuncionarioListaComponent } from './funcionario-lista/funcionario-lista.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import { FuncionarioCardComponent } from './funcionario-card/funcionario-card.co
     Aula912Component,
     Aula913Component,
     Aula914Component,
-    FuncionarioCardComponent
+    FuncionarioCardComponent,
+    FuncionarioFormComponent,
+    FuncionarioCadastroComponent,
+    FuncionarioListaComponent
   ],
   imports: [
     BrowserModule,

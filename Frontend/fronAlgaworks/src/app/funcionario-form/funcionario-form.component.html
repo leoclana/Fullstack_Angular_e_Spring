@@ -1,0 +1,15 @@
+<div class="alert alert-primary" role="alert" >
+  Fincionario adicionado: 
+  <strong *ngIf="adicionado">    <br>ngIf____: {{nomeFuncionario +' '+sobrenome}} </strong>
+  <strong [hidden]="!adicionado"><br>hidden_: {{nomeFuncionario +' '+sobrenome}}</strong>
+</div>
+
+<div class="form-group">
+    <label>Nome :</label>
+    <input type="text" class="form-control" [(ngModel)]="nomeFuncionario">
+    
+    <label>Sobrenome :</label>
+    <input type="text" class="form-control" #sobrenomeInput (focus)="adicionado = false">
+    <br/>
+    <button type="button" class="btn btn-primary" (click)="adicionar(sobrenomeInput.value)" [disabled]="nomeFuncionario.length == 0">Adicionar</button>
+</div>
