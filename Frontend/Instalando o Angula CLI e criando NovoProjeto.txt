@@ -1,20 +1,22 @@
 https://www.algaworks.com/aulas/1519/instalando-e-criando-um-projeto-com-angular-cli/
 
 ## Instalando o Angula CLI
-c:\> npm install -g @angualr/cli
+c:\> npm install -g @angular/cli
 # ou pedido senha adm maquina
-c:\> npm install -g @angualr/cli
+c:\> npm install -g @angular/cli
 Password: <do adm da maquina>
 # ou escolhendo a versao 
-c:\> npm install -g @angualr/cli@1.1.2
+c:\> npm install -g @angular/cli@1.1.2
 
 
 ## Limpar cache da maquina:
 c:\> npm cache clean
+ou
+c:\> npm cache clean --force
 
 
 ## Dsinstalar
-c:\> npm unistall -g @angualr/cli
+c:\> npm unistall -g @angular/cli
 
 ====================================================================
 
